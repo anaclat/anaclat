@@ -61,13 +61,9 @@
 
 ### 📊 Stats
 
-<p>
-  <img 
-    align="left" 
-    alt="GitHub Stats" 
-    height="200" 
-    style="padding-right: 10px;" 
-    src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&theme=tokyonight&include_all_commits=true&locale=pt-br" 
-  />
-
-</p>
+<a href="https://github.com/anaclat/github-readme-stats">
+  <img align="center" width="50%" src="https://github-readme-stats.vercel.app/api?username=anaclat&count_private=true&hide=stars&show_icons=true&theme=highcontrast" />
+</a>
+<a href="https://github.com/anaclat/github-readme-stats">
+  <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anaclat&layout=compact&theme=highcontrast" />
+</a>
