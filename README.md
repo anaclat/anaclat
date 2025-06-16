@@ -7,7 +7,6 @@
 - 🎓 Studying **Systems Analysis and Development** at **Federal Institute of Santa Catarina**  
 - 📖 Focusing on Python and Java
 - 📫 Contact me: anaclaratronzani@gmail.com
-- 🎀 Pronouns: She/Her
 
 ### 🔎 Medias
 
