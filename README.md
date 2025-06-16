@@ -79,3 +79,7 @@
   <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=anaclat&theme=merko" alt="GitHub Streak" /></a>
   <img src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&include_all_commits=true&count_private=true&theme=merko&rank_icon=github&border_radius=10" height="150" alt="Estatísticas GitHub" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=anaclat&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=merko&border_radius=10" height="150" alt="Linguagens mais usadas" />
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" alt="Snake animation" />
+</div>

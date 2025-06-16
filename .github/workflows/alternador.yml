@@ -1,0 +1,86 @@
+name: Alternador Snake/Pac-Man
+
+on:
+  # executa a cada 12 h e também manualmente
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # necessário para dar push na branch output
+
+    steps:
+    # ─────────────────────────── Clona & troca p/ branch output ────────────
+    - name: Checkout repositório
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Buscar e trocar para a branch 'output'
+      run: |
+        git fetch origin output
+        git checkout output || git checkout -b output
+
+    # ─────────────────────────── 1 ▪ Detecta modo atual ────────────────────
+    - name: Ler modo atual (snake ou pacman)
+      id: mode
+      run: |
+        echo "$(cat mode.txt 2>/dev/null || echo snake)" > mode.txt
+        echo "current=$(cat mode.txt)" >> "$GITHUB_OUTPUT"
+
+    # ─────────────────────────── 2 ▪ S N A K E  ────────────────────────────
+    - name: Gerar cor aleatória (Snake)
+      if: steps.mode.outputs.current == 'snake'
+      id: snakeColor
+      run: |
+        python3 - <<'PY'
+        import random, os
+        colors = ["#FFA500", "#00FFFF", "#32CD32", "#FF69B4", "#FFD700",
+                  "#DC143C", "#4B0082", "#008080", "#800080", "#FF8C00",
+                  "#98FF98", "#FF4500"]
+        print(f"::set-output name=color::{random.choice(colors)}")
+        PY
+
+    - name: Gerar Snake
+      if: steps.mode.outputs.current == 'snake'
+      uses: Platane/snk@v3
+      with:
+        github_user_name: ${{ github.repository_owner }}
+        outputs: |
+          dist/github-contribution-grid-snake.svg?palette=github-dark&color_snake=${{ steps.snakeColor.outputs.color }}
+
+    - name: Copiar Snake para nome genérico
+      if: steps.mode.outputs.current == 'snake'
+      run: cp dist/github-contribution-grid-snake.svg github-contribution-grid.svg
+
+    # ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
+    - name: Gerar Pac-Man
+      if: steps.mode.outputs.current == 'pacman'
+      uses: AndreRuperto/svg-pacman-contributions@main   # ← usa tag major
+      with:
+        github_user_name: ${{ github.repository_owner }}
+        github_token:     ${{ secrets.GITHUB_TOKEN }}
+        theme:            github-dark
+        output_directory: dist
+
+    - name: Copiar Pac-Man para nome genérico
+      if: steps.mode.outputs.current == 'pacman'
+      run: cp dist/pacman-contribution-graph-dark.svg github-contribution-grid.svg
+
+    # ─────────────────────────── 4 ▪ Alterna modo p/ próxima execução ─────
+    - name: Alternar o modo para próxima execução
+      run: |
+        next=$( [ "$(cat mode.txt)" = "snake" ] && echo pacman || echo snake )
+        echo "$next" > mode.txt
+
+    # ─────────────────────────── 5 ▪ Commit & push ─────────────────────────
+    - name: Commit e Push para output
+      run: |
+        git config user.name  "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Atualiza animação (${next^^})" || echo "Nada para commitar"
+        git push origin output
