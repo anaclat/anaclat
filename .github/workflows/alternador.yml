@@ -56,18 +56,19 @@ jobs:
       run: cp dist/github-contribution-grid-snake.svg github-contribution-grid.svg
 
     # ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
+# ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
     - name: Gerar Pac-Man
       if: steps.mode.outputs.current == 'pacman'
-      uses: anaclat/svg-pacman-contributions@main   # ← usa tag major
+      uses: Platane/snk@v3 # <--- A ação correta para o Pac-Man
       with:
-        github_user_name: ${{ github.repository_owner }}
-        github_token:     ${{ secrets.GITHUB_TOKEN }}
-        theme:            github-dark
-        output_directory: dist
+        github_user_name: anaclat
+        outputs: |
+          dist/github-contribution-grid-pacman.svg?palette=github-dark&pacman=true # Ativa o modo Pac-Man
+          # Nota: 'github-dark' pode ser substituído por 'github' para o tema claro
 
     - name: Copiar Pac-Man para nome genérico
       if: steps.mode.outputs.current == 'pacman'
-      run: cp dist/pacman-contribution-graph-dark.svg github-contribution-grid.svg
+      run: cp dist/github-contribution-grid-pacman.svg github-contribution-grid.svg
 
     # ─────────────────────────── 4 ▪ Alterna modo p/ próxima execução ─────
     - name: Alternar o modo para próxima execução
