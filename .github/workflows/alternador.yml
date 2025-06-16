@@ -1,9 +1,8 @@
 name: Alternador Snake/Pac-Man
 
 on:
-  # executa a cada 12 h e também manualmente
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -59,7 +58,7 @@ jobs:
     # ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
     - name: Gerar Pac-Man
       if: steps.mode.outputs.current == 'pacman'
-      uses: AndreRuperto/svg-pacman-contributions@main   # ← usa tag major
+      uses: anaclat/svg-pacman-contributions@main   # ← usa tag major
       with:
         github_user_name: ${{ github.repository_owner }}
         github_token:     ${{ secrets.GITHUB_TOKEN }}

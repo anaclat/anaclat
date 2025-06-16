@@ -81,5 +81,5 @@
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=anaclat&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=merko&border_radius=10" height="150" alt="Linguagens mais usadas" />
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" alt="Snake animation" />
+  <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" />
 </div>
