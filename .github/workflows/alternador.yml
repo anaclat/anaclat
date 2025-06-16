@@ -9,7 +9,7 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write          # necessário para dar push na branch output
+      contents: write
 
     steps:
     # ─────────────────────────── Clona & troca p/ branch output ────────────
@@ -35,46 +35,46 @@ jobs:
       if: steps.mode.outputs.current == 'snake'
       id: snakeColor
       run: |
-        python3 - <<'PY'
-        import random, os
+        python3 -c '
+        import random
         colors = ["#FFA500", "#00FFFF", "#32CD32", "#FF69B4", "#FFD700",
                   "#DC143C", "#4B0082", "#008080", "#800080", "#FF8C00",
                   "#98FF98", "#FF4500"]
-        print(f"::set-output name=color::{random.choice(colors)}")
-        PY
+        print(f"color={random.choice(colors)}")
+        ' >> "$GITHUB_OUTPUT" # CORREÇÃO: Usando $GITHUB_OUTPUT
 
     - name: Gerar Snake
       if: steps.mode.outputs.current == 'snake'
       uses: Platane/snk@v3
       with:
-        github_user_name: ${{ github.repository_owner }}
+        github_user_name: anaclat # Ou use ${{ github.repository_owner }}
         outputs: |
           dist/github-contribution-grid-snake.svg?palette=github-dark&color_snake=${{ steps.snakeColor.outputs.color }}
 
-    - name: Copiar Snake para nome genérico
-      if: steps.mode.outputs.current == 'snake'
-      run: cp dist/github-contribution-grid-snake.svg github-contribution-grid.svg
-
     # ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
-# ─────────────────────────── 3 ▪ P A C - M A N ─────────────────────────
     - name: Gerar Pac-Man
       if: steps.mode.outputs.current == 'pacman'
-      uses: Platane/snk@v3 # <--- A ação correta para o Pac-Man
+      uses: Platane/snk@v3
       with:
-        github_user_name: anaclat
+        github_user_name: anaclat # Ou use ${{ github.repository_owner }}
         outputs: |
-          dist/github-contribution-grid-pacman.svg?palette=github-dark&pacman=true # Ativa o modo Pac-Man
-          # Nota: 'github-dark' pode ser substituído por 'github' para o tema claro
+          dist/github-contribution-grid-pacman.svg?palette=github-dark&pacman=true
 
-    - name: Copiar Pac-Man para nome genérico
-      if: steps.mode.outputs.current == 'pacman'
-      run: cp dist/github-contribution-grid-pacman.svg github-contribution-grid.svg
+    # ─────────────────────────── Unifica Copiar para nome genérico ───────
+    - name: Copiar Snake/Pac-Man para nome genérico
+      run: |
+        if [ "${{ steps.mode.outputs.current }}" == "snake" ]; then
+          cp dist/github-contribution-grid-snake.svg github-contribution-grid.svg
+        else
+          cp dist/github-contribution-grid-pacman.svg github-contribution-grid.svg
+        fi
 
     # ─────────────────────────── 4 ▪ Alterna modo p/ próxima execução ─────
     - name: Alternar o modo para próxima execução
       run: |
         next=$( [ "$(cat mode.txt)" = "snake" ] && echo pacman || echo snake )
         echo "$next" > mode.txt
+        echo "next_mode=$next" >> "$GITHUB_ENV" # CORREÇÃO: Exportando para $GITHUB_ENV
 
     # ─────────────────────────── 5 ▪ Commit & push ─────────────────────────
     - name: Commit e Push para output
@@ -82,5 +82,5 @@ jobs:
         git config user.name  "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -m "Atualiza animação (${next^^})" || echo "Nada para commitar"
+        git commit -m "Atualiza animação (${ env.next_mode^^ })" || echo "Nada para commitar" # CORREÇÃO: Acessando via ${{ env.next_mode }}
         git push origin output
