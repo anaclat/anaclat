@@ -1,0 +1,46 @@
+name: Gerar Pac-Man
+
+on:
+  # Executa a cada 12h e também manualmente
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # necessário para dar push na branch output
+
+    steps:
+    # ───────────────────── Clona & troca para branch 'output' ─────────────────────
+    - name: Checkout repositório
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Buscar e trocar para a branch 'output'
+      run: |
+        git fetch origin output
+        git checkout output || git checkout -b output
+
+    # ───────────────────── Gerar e salvar Pac-Man ─────────────────────
+    - name: Gerar Pac-Man
+      uses: AndreRuperto/svg-pacman-contributions@main
+      with:
+        github_user_name: ${{ github.repository_owner }}
+        github_token:     ${{ secrets.GITHUB_TOKEN }}
+        theme:            github-dark
+        output_directory: dist
+
+    - name: Copiar Pac-Man para nome genérico
+      run: cp dist/pacman-contribution-graph-dark.svg github-contribution-grid.svg
+
+    # ───────────────────── Commit & Push ─────────────────────
+    - name: Commit e Push para output
+      run: |
+        git config user.name  "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "Atualiza animação (Pac-Man)" || echo "Nada para commitar"
+        git push origin output
