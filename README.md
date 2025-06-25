@@ -74,10 +74,21 @@
 
 ### 📊 Stats
 
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=anaclat&theme=merko" alt="Gráfico de atividade do GitHub" />
-  <img src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&include_all_commits=true&count_private=true&theme=merko&rank_icon=github&border_radius=10" height="150" alt="Estatísticas GitHub" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=anaclat&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=merko&border_radius=10" height="150" alt="Linguagens mais usadas" />
+<div align='center'>
+
+<div align="center">  
+  
+  <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&count_private=true&title_color=80F7D4&icon_color=9d00ff&text_color=c9d1d9&bg_color=0d1117&border_color=fff0" /> 
+  
+  <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anaclat&layout=compact&title_color=80F7D4&text_color=fff&bg_color=0d1117&border_color=fff0" />
+  
+</div>
+
+</div>
+
+<img src="./.github/assets/lineBar.png" width="100%" height="8px"/>
+
+<div><br />
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" alt="Snake animation" />
