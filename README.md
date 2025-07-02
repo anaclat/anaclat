@@ -93,3 +93,5 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" alt="Snake animation" />
 </div>
+
+<p align="center"> <img src="https://komarev.com/ghpvc/?username=anaclat&label=Profile%20views&color=blueviolet&style=flat" alt="anaclat" /> </p>
