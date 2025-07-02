@@ -1,8 +1,4 @@
-<a href="https://github.com/anaclat">
-  <!-- <img alt="cabecalho" width=100% src="https://capsule-render.vercel.app/api?type=waving&color=FF079F&height=120&section=header"/> -->
-
-  <img alt="boas vindas - typing svg" width=100% src="https://readme-typing-svg.herokuapp.com?font=Open+Sans&weight=400&size=25&pause=435&color=FF079F&center=true&vCenter=true&width=800&lines=Ol%C3%A1%2C+eu+sou+a+Ana.;Seja+bem+vindo+:%29"/>
-</a>
+  <img alt="boas vindas - typing svg" width=100% src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&color=A020F0&center=true&vCenter=true&width=435&lines=Hi!+I+am+Ana.;Welcome+to+my+GitHub+%3A)" alt="Typing SVG" /></a>
 
 **`Backend Developer`**
 
