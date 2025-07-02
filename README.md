@@ -1,4 +1,8 @@
-# 👩🏾‍💻 Ana Ronzani
+<a href="https://github.com/anaclat">
+  <!-- <img alt="cabecalho" width=100% src="https://capsule-render.vercel.app/api?type=waving&color=FF079F&height=120&section=header"/> -->
+
+  <img alt="boas vindas - typing svg" width=100% src="https://readme-typing-svg.herokuapp.com?font=Open+Sans&weight=400&size=25&pause=435&color=FF079F&center=true&vCenter=true&width=800&lines=Ol%C3%A1%2C+eu+sou+a+Ana.;Seja+bem+vindo+:%29"/>
+</a>
 
 **`Backend Developer`**
 
