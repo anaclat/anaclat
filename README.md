@@ -74,11 +74,15 @@
 <br/>
 <br/>
 
-![Linear Gradient](./assets/lineBar.png)
-
 ### 📊 Stats
 
-<div><br />
+<div align="center">  
+  <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&count_private=true&hide_border=true&title_color=6637AF&icon_color=6637AF&text_color=c9d1d9&bg_color=0d1117" alt="Ana Ronzani github stats" /> 
+  <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anaclat&layout=compact&hide_border=true&title_color=6637AF&text_color=00bfbf&bg_color=0d1117" />
+</div>
+
+![Linear Gradient](./assets/lineBar.png)
+
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/anaclat/anaclat/output/github-contribution-grid.svg" alt="Snake animation" />
