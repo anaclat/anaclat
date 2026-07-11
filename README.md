@@ -1,13 +1,13 @@
   <img alt="boas vindas - typing svg" width=100% src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&color=A020F0&center=true&vCenter=true&width=435&lines=Hi!+I+am+Ana.;Welcome+to+my+GitHub+%3A)" alt="Typing SVG" /></a>
 
-**`Backend Developer`**
+**`Full-Stack Developer`**
 
 ![Linear Gradient](./assets/lineBar.png)
 
 ### 🧠 About me
 
 - 🎓 Studying **Systems Analysis and Development** at **Federal Institute of Santa Catarina**  
-- 📖 Focusing on Python and Java
+- 📖 Focusing on Web Development & Python Automations
 - 📫 Contact me: anaclaratronzani@gmail.com
 
 ### 🔎 Medias
@@ -22,64 +22,24 @@
 
 ### 🤖 Languages & Technologies
 
-<img 
-    align="left" 
-    alt="HTML"
-    title="HTML" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="CSS" 
-    title="CSS"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" 
-/>
-<img
-    align="left" 
-    alt="JAVA" 
-    title="Java"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="30" alt="java logo" 
-/>
-<img 
-    align="left" 
-    alt="JavaScript" 
-    title="JavaScript"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Git" 
-    title="Git"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Python" 
-    title="Python"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" 
-/>
+```js
+import Developer from "anaclat";
 
-<br/>
-<br/>
+class AboutMe extends Developer {
+  name = "Ana Ronzani";
+  contact = "anaclaratronzani@gmail.com";
+  field = "Full-Stack";
+  major = "Systems Analysis and Development";
+  university = "Federal Institute of Santa Catarina (IFSC)";
+}
 
-### 📊 Stats
-
-<div align="center">  
-  <img width="49%" height="195px" src="https://github-readme-stats.vercel.app/api?username=anaclat&show_icons=true&count_private=true&hide_border=true&title_color=6637AF&icon_color=6637AF&text_color=c9d1d9&bg_color=0d1117" alt="Ana Ronzani github stats" /> 
-  <img width="41%" height="195px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=anaclat&layout=compact&hide_border=true&title_color=6637AF&text_color=00bfbf&bg_color=0d1117" />
-</div>
+class Skills extends Developer {
+  languages = ["Python", "Java", "SQL", "Shell", "PHP", "JavaScript", "TypeScript"];
+  libraries = ["JWT", "Pytest", "Hibernate", "SQLAlchemy", "Requests"];
+  frameworks = ["Spring Boot", "Django", "Flask", "Node.js"];
+  tools = ["Docker", "Git", "MySQL", "Linux"];
+}
+```
 
 ![Linear Gradient](./assets/lineBar.png)
 
